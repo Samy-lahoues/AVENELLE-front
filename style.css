@@ -22,8 +22,45 @@ body{
 
 /*BASIC STYLING*/
 
+a{
+ font-size: 1.1rem;
+text-decoration: none;
+color: var(--s);
+}
+
+.flex{
+display: flex;
+align-items: center;
+}
+
+li{
+list-style: none;
+
+}
+
+.between{
+    justify-content: space-between;
+
+}
 
 
+.gap-1{
+    gap: 1.4rem;
+}
+.gap-2{
+    gap: 2rem;
+}
+.gap-3{
+    gap: 3rem;
+}
+
+
+.wrapper{
+    max-width: 1400px;
+    background: var(--p);
+    margin: auto;
+    padding-inline: 1.5rem;
+}
 
 
 
@@ -35,6 +72,89 @@ body{
 
 
 /*HADER STYLING*/
+
+.navbar{
+    min-height: 14vh;
+}
+
+.logo{
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--lead);
+}
+
+.btn{
+    display: inline-block;
+    padding: .8rem 1.6rem;
+    background: var(--lead);
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    color: var(--white);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
+    transition: .3s ease-in-out;
+}
+
+.btn:hover{
+    background: var(--s);
+
+}
+
+.cart-icon{
+    color: var(--s);
+    font-size: 1.17em;
+    position: relative;
+}
+
+.cart-icon .cart-value{
+    position: absolute;
+    top: 50%;
+    right: -9px;
+    font-size: .85rem;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background: var(--lead);
+    color: var(--s);
+    text-align: center;
+    line-height: 20px;
+}
+
+.desktop-action .bar{
+    font-size: 1.17rem ;
+    display: none;
+}
+
+.mobile-p{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    padding: 2rem;
+    background: var(--white);
+    border: .1rem solid var(--p);
+    border-radius: 2rem;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*MAIN STYLING*/
@@ -83,3 +203,15 @@ body{
 
 
 /*MEDIA*/
+@media screen and (max-width: 780px){
+.navlist,
+.desktop-action .btn{
+    display: none;
+
+}
+.desktop-action .bar{
+    display: block;
+}
+
+}
+
