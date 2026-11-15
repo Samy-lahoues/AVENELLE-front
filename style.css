@@ -125,21 +125,7 @@ list-style: none;
 }
 
 .mobile-p{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    gap: 2rem;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20rem;
-    padding: 2rem;
-    background: var(--white);
-    border: .1rem solid var(--p);
-    border-radius: 2rem;
-
+    display: none;
 
 }
 
@@ -157,7 +143,12 @@ list-style: none;
 
 
 
-/*MAIN STYLING*/
+/*Section STYLING*/
+
+.hero-section{
+    
+    min-height: calc(100vh - 14vh);
+}
 
 
 /*FOOTER STYLING*/
@@ -212,6 +203,29 @@ list-style: none;
 .desktop-action .bar{
     display: block;
 }
+.mobile-p{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 20%;
+    left: -100%;
+    transform: translateX(-50%);
+    width: 20rem;
+    padding: 2rem;
+    background: var(--white);
+    border: .1rem solid var(--p);
+    border-radius: 2rem;
+    box-shadow:rgba(0, 0, 0, 0.05) 8px 8px 8px,
+               rgba(0, 0, 0, 0.05) 8px 8px 8px inset;
+    transition: all .5s ease-in-out;
+}
+.mobile-p-active{
+    left: 50%;
+    transform: translateX(-50)%;
 
+}
 }
 
