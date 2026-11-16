@@ -1,0 +1,2028 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AVENELLE | Admin</title>
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0a;
+            color: #d8c8a5;
+            font-family: Georgia, "Times New Roman", serif;
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+        .top-bar {
+            background: #d8c8a5;
+            color: #0b0b0a;
+            text-align: center;
+            padding: 8px 10px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .admin-header {
+            min-height: 110px;
+            padding: 15px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #292822;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-size: 28px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .brand-text p {
+            margin-top: 7px;
+            color: #817967;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .back-shop {
+            color: #d8c8a5;
+            text-decoration: none;
+
+            border: 1px solid #5c5547;
+
+            padding: 12px 18px;
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .back-shop:hover {
+            background: #d8c8a5;
+            color: #0b0b0a;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        .admin-main {
+            width: min(1400px, 90%);
+            margin: 0 auto;
+            padding: 60px 0 100px;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .page-title {
+            margin-bottom: 40px;
+        }
+
+        .page-title .eyebrow {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 5px;
+            color: #817967;
+            margin-bottom: 12px;
+        }
+
+        .page-title h2 {
+            font-size: clamp(40px, 6vw, 75px);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            border: 1px solid #39362e;
+            padding: 25px;
+            background: #11110f;
+        }
+
+        .stat-card span {
+            display: block;
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            color: #817967;
+
+            margin-bottom: 15px;
+        }
+
+        .stat-card strong {
+            display: block;
+
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+
+            color: #d8c8a5;
+        }
+
+
+        /* =====================================================
+           TOOLBAR
+        ===================================================== */
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input,
+        .filter-box select {
+            width: 100%;
+
+            background: #11110f;
+
+            border: 1px solid #5c5547;
+
+            color: #d8c8a5;
+
+            padding: 14px;
+
+            outline: none;
+
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .search-box input:focus,
+        .filter-box select:focus {
+            border-color: #d8c8a5;
+        }
+
+        .filter-box {
+            width: 220px;
+        }
+
+
+        /* =====================================================
+           REFRESH
+        ===================================================== */
+
+        .refresh-button {
+            background: transparent;
+
+            border: 1px solid #5c5547;
+
+            color: #d8c8a5;
+
+            padding: 14px 20px;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .refresh-button:hover {
+            background: #d8c8a5;
+            color: #0b0b0a;
+        }
+
+
+        /* =====================================================
+           ORDERS
+        ===================================================== */
+
+        .orders-container {
+            border: 1px solid #39362e;
+            background: #11110f;
+        }
+
+        .orders-header {
+            padding: 20px 25px;
+
+            border-bottom: 1px solid #39362e;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .orders-header h3 {
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+
+        .orders-header span {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #817967;
+        }
+
+
+        /* =====================================================
+           ORDER CARD
+        ===================================================== */
+
+        .order-card {
+            border-bottom: 1px solid #39362e;
+            padding: 30px;
+        }
+
+        .order-card:last-child {
+            border-bottom: none;
+        }
+
+
+        /* =====================================================
+           ORDER TOP
+        ===================================================== */
+
+        .order-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .order-id {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .order-date {
+            margin-top: 8px;
+
+            color: #817967;
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-select {
+            background: #0b0b0a;
+
+            border: 1px solid #5c5547;
+
+            color: #d8c8a5;
+
+            padding: 10px;
+
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            outline: none;
+        }
+
+
+        /* =====================================================
+           ORDER CONTENT
+        ===================================================== */
+
+        .order-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1fr;
+
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+        .order-section {
+            border: 1px solid #292822;
+            padding: 20px;
+        }
+
+        .order-section h4 {
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: #817967;
+
+            margin-bottom: 15px;
+        }
+
+        .customer-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .customer-info {
+            font-family: Arial, sans-serif;
+
+            color: #b0a58c;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           PRODUCTS
+        ===================================================== */
+
+        .order-products {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .order-product {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid #292822;
+        }
+
+        .order-product:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .order-product img {
+            width: 55px;
+            height: 65px;
+
+            object-fit: cover;
+
+            border: 1px solid #39362e;
+        }
+
+        .order-product-info {
+            flex: 1;
+        }
+
+        .order-product-name {
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .order-product-price {
+            margin-top: 5px;
+
+            font-family: Arial, sans-serif;
+
+            color: #817967;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           TOTAL
+        ===================================================== */
+
+        .order-total {
+            font-family: Arial, sans-serif;
+
+            font-size: 24px;
+
+            color: #d8c8a5;
+
+            margin-top: 10px;
+        }
+
+        .order-currency {
+            font-size: 10px;
+
+            color: #817967;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =====================================================
+           DELETE
+        ===================================================== */
+
+        .order-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .delete-button {
+            background: transparent;
+
+            border: 1px solid #5c5547;
+
+            color: #817967;
+
+            padding: 10px 16px;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+        .delete-button:hover {
+            background: #d8c8a5;
+            color: #0b0b0a;
+        }
+
+
+        /* =====================================================
+           EMPTY
+        ===================================================== */
+
+        .empty-orders {
+            text-align: center;
+
+            padding: 80px 20px;
+
+            font-family: Arial, sans-serif;
+
+            color: #817967;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top: 1px solid #292822;
+
+            padding: 35px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #817967;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .toast {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            background: #d8c8a5;
+
+            color: #0b0b0a;
+
+            padding: 15px 22px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            z-index: 9999;
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition:
+                opacity .2s ease,
+                transform .2s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .order-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .admin-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .brand {
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .order-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-top {
+                flex-direction: column;
+            }
+
+            .status-area {
+                width: 100%;
+            }
+
+            .status-select {
+                width: 100%;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-box {
+                width: 100%;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .order-card {
+                padding: 20px;
+            }
+
+        }
+
+        /* AVENELLE admin palette */
+        body { background: #f8f6f0 !important; color: #292d2a !important; }
+        .top-bar { background: #183d32 !important; color: #fff !important; }
+        .admin-header, footer { border-color: #dce0d8 !important; }
+        .brand-text p, .eyebrow, .stat-card span, .orders-header span,
+        .order-date, .order-section h4, .order-product-price, .order-currency,
+        .delete-button, footer { color: #777d76 !important; }
+        .brand-text h1, .page-title h2, .stat-card strong, .order-total,
+        .back-shop, .refresh-button { color: #183d32 !important; }
+        .stat-card, .orders-container { background: #fff !important; border-color: #dce0d8 !important; }
+        .order-card, .orders-header, .order-section, .order-product { border-color: #dce0d8 !important; }
+        .back-shop, .refresh-button, .status-select, .search-box input,
+        .filter-box select, .delete-button { border-color: #a8b5a0 !important; }
+        .status-select, .search-box input, .filter-box select { background: #fff !important; color: #292d2a !important; }
+        .back-shop:hover, .refresh-button:hover, .delete-button:hover { background: #183d32 !important; color: #fff !important; }
+        .customer-info { color: #59665d !important; }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <div class="top-bar">
+        AVENELLE — ADMIN PANEL
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="admin-header">
+
+        <div class="brand">
+
+            <img
+                src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=160&q=70"
+                alt="AVENELLE"
+            >
+
+            <div class="brand-text">
+
+                <h1>
+                    AVENELLE
+                </h1>
+
+                <p>
+                    ORDER MANAGEMENT
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="./index.html"
+            class="back-shop"
+        >
+            ← BACK TO SHOP
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="page-title">
+
+            <div class="eyebrow">
+                AVENELLE / CONTROL
+            </div>
+
+            <h2>
+                ORDERS
+            </h2>
+
+        </div>
+
+
+        <!-- =================================================
+             STATS
+        ================================================== -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <span>
+                    TOTAL ORDERS
+                </span>
+
+                <strong id="totalOrders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    NEW ORDERS
+                </span>
+
+                <strong id="newOrders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    DELIVERED
+                </span>
+
+                <strong id="deliveredOrders">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    TOTAL SALES
+                </span>
+
+                <strong id="totalSales">
+                    0 DZD
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TOOLBAR
+        ================================================== -->
+
+        <section class="toolbar">
+
+            <div class="search-box">
+
+                <input
+                    type="search"
+                    id="searchOrders"
+                    placeholder="SEARCH BY ORDER / NAME / PHONE / WILAYA..."
+                >
+
+            </div>
+
+
+            <div class="filter-box">
+
+                <select id="statusFilter">
+
+                    <option value="ALL">
+                        ALL STATUS
+                    </option>
+
+                    <option value="NEW">
+                        NEW
+                    </option>
+
+                    <option value="CONFIRMED">
+                        CONFIRMED
+                    </option>
+
+                    <option value="SHIPPED">
+                        SHIPPED
+                    </option>
+
+                    <option value="DELIVERED">
+                        DELIVERED
+                    </option>
+
+                    <option value="CANCELLED">
+                        CANCELLED
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="refresh-button"
+                onclick="loadAdminOrders()"
+            >
+                ↻ REFRESH
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             ORDERS CONTAINER
+        ================================================== -->
+
+        <section class="orders-container">
+
+            <div class="orders-header">
+
+                <h3>
+                    ALL ORDERS
+                </h3>
+
+                <span id="visibleOrders">
+                    0 ORDERS
+                </span>
+
+            </div>
+
+
+            <div id="ordersList">
+
+                <!-- ORDERS GENERATED BY JAVASCRIPT -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div>
+            © 2026 AVENELLE
+        </div>
+
+        <div>
+            ADMIN PANEL
+        </div>
+
+        <div>
+            BEAUTY, CONSIDERED · ALGERIA
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           [1] GLOBAL
+        ===================================================== */
+
+        let orders = [];
+
+
+        /* =====================================================
+           [2] GET ORDERS
+        ===================================================== */
+
+        function getOrders() {
+
+            try {
+
+                const savedOrders =
+                    localStorage.getItem(
+                        "avenelleOrders"
+                    );
+
+
+                if (!savedOrders) {
+                    return [];
+                }
+
+
+                const parsed =
+                    JSON.parse(savedOrders);
+
+
+                if (!Array.isArray(parsed)) {
+                    return [];
+                }
+
+
+                return parsed;
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Could not load orders:",
+                    error
+                );
+
+                return [];
+
+            }
+
+        }
+
+
+        /* =====================================================
+           [3] FORMAT PRICE
+        ===================================================== */
+
+        function formatPrice(price) {
+
+            const number =
+                Number(price || 0);
+
+
+            return (
+                number.toLocaleString("fr-DZ")
+                + " DZD"
+            );
+
+        }
+
+
+        /* =====================================================
+           [4] FORMAT DATE
+        ===================================================== */
+
+        function formatDate(dateString) {
+
+            if (!dateString) {
+                return "UNKNOWN DATE";
+            }
+
+
+            const date =
+                new Date(dateString);
+
+
+            if (
+                Number.isNaN(
+                    date.getTime()
+                )
+            ) {
+
+                return "UNKNOWN DATE";
+
+            }
+
+
+            return date.toLocaleString(
+                "fr-DZ",
+                {
+                    dateStyle: "medium",
+                    timeStyle: "short"
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           [5] ESCAPE HTML
+        ===================================================== */
+
+        function escapeHTML(value) {
+
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+
+        /* =====================================================
+           [6] UPDATE STATS
+        ===================================================== */
+
+        function updateStats() {
+
+            const total =
+                orders.length;
+
+
+            const newCount =
+                orders.filter(
+                    order =>
+                        order.status === "NEW"
+                ).length;
+
+
+            const deliveredCount =
+                orders.filter(
+                    order =>
+                        order.status === "DELIVERED"
+                ).length;
+
+
+            const sales =
+                orders.reduce(
+                    function (sum, order) {
+
+                        if (
+                            order.status ===
+                            "CANCELLED"
+                        ) {
+
+                            return sum;
+
+                        }
+
+
+                        return (
+                            sum +
+                            Number(
+                                order.total || 0
+                            )
+                        );
+
+                    },
+                    0
+                );
+
+
+            document.getElementById(
+                "totalOrders"
+            ).textContent =
+                total;
+
+
+            document.getElementById(
+                "newOrders"
+            ).textContent =
+                newCount;
+
+
+            document.getElementById(
+                "deliveredOrders"
+            ).textContent =
+                deliveredCount;
+
+
+            document.getElementById(
+                "totalSales"
+            ).textContent =
+                formatPrice(sales);
+
+        }
+
+
+        /* =====================================================
+           [7] GET SEARCH / FILTER
+        ===================================================== */
+
+        function getFilteredOrders() {
+
+            const search =
+                document.getElementById(
+                    "searchOrders"
+                )
+                .value
+                .trim()
+                .toLowerCase();
+
+
+            const status =
+                document.getElementById(
+                    "statusFilter"
+                )
+                .value;
+
+
+            return orders.filter(
+                function (order) {
+
+                    const customer =
+                        order.customer || {};
+
+
+                    const searchable = [
+
+                        order.id,
+
+                        order.status,
+
+                        customer.name,
+
+                        customer.phone,
+
+                        customer.wilaya,
+
+                        customer.commune,
+
+                        customer.daira,
+
+                        customer.address
+
+                    ]
+                    .join(" ")
+                    .toLowerCase();
+
+
+                    const matchesSearch =
+                        !search ||
+                        searchable.includes(
+                            search
+                        );
+
+
+                    const matchesStatus =
+                        status === "ALL" ||
+                        order.status === status;
+
+
+                    return (
+                        matchesSearch &&
+                        matchesStatus
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           [8] RENDER ORDERS
+        ===================================================== */
+
+        function renderOrders() {
+
+            const container =
+                document.getElementById(
+                    "ordersList"
+                );
+
+
+            const filtered =
+                getFilteredOrders();
+
+
+            document.getElementById(
+                "visibleOrders"
+            ).textContent =
+                filtered.length +
+                (
+                    filtered.length === 1
+                        ? " ORDER"
+                        : " ORDERS"
+                );
+
+
+            if (
+                filtered.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty-orders">
+
+                        NO ORDERS FOUND
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            container.innerHTML =
+                filtered
+                    .map(
+                        renderOrderCard
+                    )
+                    .join("");
+
+        }
+
+
+        /* =====================================================
+           [9] RENDER ORDER CARD
+        ===================================================== */
+
+        function renderOrderCard(order) {
+
+            const customer =
+                order.customer || {};
+
+
+            const products =
+                Array.isArray(
+                    order.products
+                )
+                    ? order.products
+                    : [];
+
+
+            const productsHTML =
+                products.length
+
+                    ?
+
+                    products
+                        .map(
+                            function (product) {
+
+                                return `
+
+                                    <div class="order-product">
+
+                                        <img
+                                            src="${escapeHTML(
+                                                product.image
+                                            )}"
+                                            alt="${escapeHTML(
+                                                product.name
+                                            )}"
+                                        >
+
+                                        <div class="order-product-info">
+
+                                            <div class="order-product-name">
+
+                                                ${escapeHTML(
+                                                    product.name
+                                                )}
+
+                                            </div>
+
+                                            <div class="order-product-price">
+
+                                                ${formatPrice(
+                                                    product.price
+                                                )}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                `;
+
+                            }
+                        )
+                        .join("")
+
+                    :
+
+                    `
+
+                        <div class="customer-info">
+
+                            NO PRODUCTS
+
+                        </div>
+
+                    `;
+
+
+            return `
+
+                <article
+                    class="order-card"
+                    data-order-id="${escapeHTML(
+                        order.id
+                    )}"
+                >
+
+
+                    <!-- ORDER TOP -->
+
+                    <div class="order-top">
+
+                        <div>
+
+                            <div class="order-id">
+
+                                ${escapeHTML(
+                                    order.id || "NO ID"
+                                )}
+
+                            </div>
+
+                            <div class="order-date">
+
+                                ${formatDate(
+                                    order.createdAt
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="status-area">
+
+                            <select
+                                class="status-select"
+                                onchange="changeOrderStatus(
+                                    '${escapeHTML(
+                                        order.id
+                                    )}',
+                                    this.value
+                                )"
+                            >
+
+                                ${renderStatusOptions(
+                                    order.status
+                                )}
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ORDER GRID -->
+
+                    <div class="order-grid">
+
+
+                        <!-- CUSTOMER -->
+
+                        <div class="order-section">
+
+                            <h4>
+                                CUSTOMER
+                            </h4>
+
+                            <div class="customer-name">
+
+                                ${escapeHTML(
+                                    customer.name ||
+                                    "—"
+                                )}
+
+                            </div>
+
+                            <div class="customer-info">
+
+                                PHONE:
+                                ${escapeHTML(
+                                    customer.phone ||
+                                    "—"
+                                )}
+
+                                <br>
+
+                                WILAYA:
+                                ${escapeHTML(
+                                    customer.wilaya ||
+                                    "—"
+                                )}
+
+                                <br>
+
+                                COMMUNE:
+                                ${escapeHTML(
+                                    customer.commune ||
+                                    "—"
+                                )}
+
+                                ${
+                                    customer.daira
+                                        ? `
+                                            <br>
+                                            DAIRA:
+                                            ${escapeHTML(
+                                                customer.daira
+                                            )}
+                                          `
+                                        : ""
+                                }
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ADDRESS -->
+
+                        <div class="order-section">
+
+                            <h4>
+                                DELIVERY
+                            </h4>
+
+                            <div class="customer-info">
+
+                                ${escapeHTML(
+                                    customer.address ||
+                                    "NO ADDRESS"
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRODUCTS -->
+
+                        <div class="order-section">
+
+                            <h4>
+                                PRODUCTS
+                            </h4>
+
+                            <div class="order-products">
+
+                                ${productsHTML}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="order-section">
+
+                        <h4>
+                            ORDER TOTAL
+                        </h4>
+
+                        <div class="order-total">
+
+                            ${formatPrice(
+                                order.total
+                            )}
+
+                        </div>
+
+                        <div class="order-currency">
+
+                            ${escapeHTML(
+                                order.currency || "DZD"
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="order-actions">
+
+                        <button
+                            type="button"
+                            class="delete-button"
+                            onclick="deleteAdminOrder(
+                                '${escapeHTML(
+                                    order.id
+                                )}'
+                            )"
+                        >
+
+                            DELETE ORDER
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }
+
+
+        /* =====================================================
+           [10] STATUS OPTIONS
+        ===================================================== */
+
+        function renderStatusOptions(
+            currentStatus
+        ) {
+
+            const statuses = [
+
+                "NEW",
+
+                "CONFIRMED",
+
+                "SHIPPED",
+
+                "DELIVERED",
+
+                "CANCELLED"
+
+            ];
+
+
+            return statuses
+                .map(
+                    function (status) {
+
+                        return `
+
+                            <option
+                                value="${status}"
+                                ${
+                                    status ===
+                                    currentStatus
+                                        ? "selected"
+                                        : ""
+                                }
+                            >
+
+                                ${status}
+
+                            </option>
+
+                        `;
+
+                    }
+                )
+                .join("");
+
+        }
+
+
+        /* =====================================================
+           [11] CHANGE STATUS
+        ===================================================== */
+
+        function changeOrderStatus(
+            orderId,
+            newStatus
+        ) {
+
+            const orderIndex =
+                orders.findIndex(
+                    function (order) {
+
+                        return (
+                            order.id ===
+                            orderId
+                        );
+
+                    }
+                );
+
+
+            if (
+                orderIndex === -1
+            ) {
+
+                showToast(
+                    "ORDER NOT FOUND"
+                );
+
+                return;
+
+            }
+
+
+            orders[
+                orderIndex
+            ].status =
+                newStatus;
+
+
+            orders[
+                orderIndex
+            ].updatedAt =
+                new Date().toISOString();
+
+
+            localStorage.setItem(
+                "avenelleOrders",
+                JSON.stringify(
+                    orders
+                )
+            );
+
+
+            /*
+             * Keep compatibility
+             * with last order.
+             */
+
+            const lastOrder =
+                localStorage.getItem(
+                    "avenelleLastOrder"
+                );
+
+
+            if (lastOrder) {
+
+                try {
+
+                    const parsed =
+                        JSON.parse(
+                            lastOrder
+                        );
+
+
+                    if (
+                        parsed.id ===
+                        orderId
+                    ) {
+
+                        parsed.status =
+                            newStatus;
+
+
+                        parsed.updatedAt =
+                            orders[
+                                orderIndex
+                            ].updatedAt;
+
+
+                        localStorage.setItem(
+                            "avenelleLastOrder",
+                            JSON.stringify(
+                                parsed
+                            )
+                        );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                }
+
+            }
+
+
+            updateStats();
+
+            renderOrders();
+
+
+            showToast(
+                "STATUS UPDATED ✓"
+            );
+
+        }
+
+
+        /* =====================================================
+           [12] DELETE ORDER
+        ===================================================== */
+
+        function deleteAdminOrder(
+            orderId
+        ) {
+
+            const order =
+                orders.find(
+                    function (item) {
+
+                        return (
+                            item.id ===
+                            orderId
+                        );
+
+                    }
+                );
+
+
+            if (!order) {
+
+                showToast(
+                    "ORDER NOT FOUND"
+                );
+
+                return;
+
+            }
+
+
+            const confirmed =
+                window.confirm(
+                    "DELETE ORDER " +
+                    orderId +
+                    " ?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            orders =
+                orders.filter(
+                    function (item) {
+
+                        return (
+                            item.id !==
+                            orderId
+                        );
+
+                    }
+                );
+
+
+            localStorage.setItem(
+                "avenelleOrders",
+                JSON.stringify(
+                    orders
+                )
+            );
+
+
+            /*
+             * Remove last order
+             * reference if necessary.
+             */
+
+            const lastOrder =
+                localStorage.getItem(
+                    "avenelleLastOrder"
+                );
+
+
+            if (lastOrder) {
+
+                try {
+
+                    const parsed =
+                        JSON.parse(
+                            lastOrder
+                        );
+
+
+                    if (
+                        parsed.id ===
+                        orderId
+                    ) {
+
+                        localStorage.removeItem(
+                            "avenelleLastOrder"
+                        );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                }
+
+            }
+
+
+            updateStats();
+
+            renderOrders();
+
+
+            showToast(
+                "ORDER DELETED"
+            );
+
+        }
+
+
+        /* =====================================================
+           [13] LOAD ADMIN ORDERS
+        ===================================================== */
+
+        function loadAdminOrders() {
+
+            orders =
+                getOrders();
+
+
+            /*
+             * Newest first.
+             */
+
+            orders.sort(
+                function (a, b) {
+
+                    const dateA =
+                        new Date(
+                            a.createdAt || 0
+                        ).getTime();
+
+
+                    const dateB =
+                        new Date(
+                            b.createdAt || 0
+                        ).getTime();
+
+
+                    return (
+                        dateB -
+                        dateA
+                    );
+
+                }
+            );
+
+
+            updateStats();
+
+            renderOrders();
+
+        }
+
+
+        /* =====================================================
+           [14] SEARCH
+        ===================================================== */
+
+        document
+            .getElementById(
+                "searchOrders"
+            )
+            .addEventListener(
+                "input",
+                function () {
+
+                    renderOrders();
+
+                }
+            );
+
+
+        /* =====================================================
+           [15] FILTER
+        ===================================================== */
+
+        document
+            .getElementById(
+                "statusFilter"
+            )
+            .addEventListener(
+                "change",
+                function () {
+
+                    renderOrders();
+
+                }
+            );
+
+
+        /* =====================================================
+           [16] TOAST
+        ===================================================== */
+
+        function showToast(message) {
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add(
+                "show"
+            );
+
+
+            clearTimeout(
+                window.avenelleToastTimer
+            );
+
+
+            window.avenelleToastTimer =
+                setTimeout(
+                    function () {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    2200
+                );
+
+        }
+
+
+        /* =====================================================
+           [17] INITIALIZE
+        ===================================================== */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadAdminOrders();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

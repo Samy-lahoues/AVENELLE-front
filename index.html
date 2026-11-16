@@ -1,97 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avenelle Shop</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover carefully selected skincare and beauty essentials from the brands you trust at AVENELLE, Algeria.">
+  <meta name="theme-color" content="#f8f6f0">
+  <title>AVENELLE | Your Skin. Your Standard.</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-   <!---header--->
-    <header>
-    <nav class="navbar flex between wrapper" >
-        <a href="#" class="logo">AVENELLE.</a>
-        
-        <!--DESKTOP PRODECT-->
-        <ul class="navlist flex gap-3">
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Shop</a>
-            </li>
-            <li>
-                <a href="#">About us</a>
-            </li>
-            <li>
-                <a href="#">contacts</a>
-            </li>
-         </ul>
-     
-
-         <div class="desktop-action flex gap-1">
-                <a href="#" class="cart-icon">
-                 <i class="fa-solid fa-bag-shopping"></i>
-                 <span class="cart-value">0</span>
-                </a>
-                 <a href="#" class="btn">
-                Sign in
-                &nbsp;
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                </a>
-                <a href="#" class="bar">
-                <i class="fa-solid fa-bars"></i>
-            </a>
-         </div>
-      <!--MOBILE PRODECT-->
-        <ul class="mobile-p">
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Shop</a>
-            </li>
-            <li>
-                <a href="#">About us</a>
-            </li>
-            <li>
-                <a href="#">contacts</a>
-            </li>
-            <li>     <a href="#" class="btn">
-                Sign in
-                &nbsp;
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                </a></li>
-         </ul>
+  <div class="announcement">Complimentary delivery on selected orders · Algeria</div>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="AVENELLE home">AVENELLE<span>BEAUTY, CONSIDERED</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">HOME</a><a href="#shop">SHOP</a><a href="#categories">SKINCARE</a><a href="#brands">BRANDS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a>
     </nav>
-    </header>
-
-
- <!--section--->
- <main>
-    <section>
-        
-        <div class="hero-section"> 
-            <div class="content">
-                <h1>Your Skin. Your Standard.
-                 <span>skin</span>
-                </h1>
-                <p>
-                    Taking car of your self is part of success.
-                </p>
-            </div>
-        </div>
-
-    </section>   
-
- </main>
-
-   <!---footer--->
- <footer> </footer>
-
-
-
+    <div class="nav-actions">
+      <button class="icon-button" type="button" id="searchToggle" aria-label="Search products"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.7"/><path d="m16 16 5 5"/></svg></button>
+      <button class="icon-button" type="button" id="wishlistToggle" aria-label="View wishlist"><svg viewBox="0 0 24 24"><path d="M20.8 8.8c0 5.1-8.8 10.2-8.8 10.2S3.2 13.9 3.2 8.8A4.5 4.5 0 0 1 12 6.5a4.5 4.5 0 0 1 8.8 2.3Z"/></svg><span class="count-badge" id="wishlistCount">0</span></button>
+      <button class="icon-button cart-trigger" type="button" onclick="openCart()" aria-label="Shopping bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="count-badge" id="cartCount">0</span></button>
+    </div>
+  </header>
+  <div class="search-panel" id="searchPanel" hidden><label for="productSearch">Search the collection</label><input id="productSearch" type="search" placeholder="Try cleanser, serum, CeraVe…"></div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy"><p class="eyebrow">A MORE CONSIDERED BEAUTY ROUTINE</p><h1>Your Skin.<br><em>Your Standard.</em></h1><p class="hero-description">Discover carefully selected skincare and beauty essentials from the brands you trust.</p><div class="hero-actions"><a class="button button-dark" href="#shop">EXPLORE PRODUCTS</a><a class="text-link" href="#brands">DISCOVER BRANDS <span>↗</span></a></div></div>
+      <div class="hero-image" role="img" aria-label="A calm, sunlit skincare arrangement"><div class="hero-caption">A DAILY RITUAL, MADE PERSONAL</div></div>
+      <div class="hero-index">01 <span>—</span> 03</div>
+    </section>
+    <section class="trust-strip"><span>CURATED FOR EVERYDAY</span><i></i><span>SKINCARE & BEAUTY</span><i></i><span>DELIVERED ACROSS ALGERIA</span></section>
+    <section class="section categories-section" id="categories"><div class="section-heading"><div><p class="eyebrow">THE EDIT</p><h2>Find your essentials</h2></div><a class="text-link" href="#shop">SHOP ALL <span>↗</span></a></div><div class="category-grid">
+      <button class="category-tile" data-filter="Cleansers"><span>01</span><strong>Cleansers</strong><i>↗</i></button><button class="category-tile" data-filter="Moisturizers"><span>02</span><strong>Moisturizers</strong><i>↗</i></button><button class="category-tile" data-filter="Serums"><span>03</span><strong>Serums</strong><i>↗</i></button><button class="category-tile" data-filter="Sunscreens"><span>04</span><strong>Sunscreens</strong><i>↗</i></button><button class="category-tile" data-filter="Treatments"><span>05</span><strong>Treatments</strong><i>↗</i></button><button class="category-tile" data-filter="Makeup"><span>06</span><strong>Makeup</strong><i>↗</i></button>
+    </div></section>
+    <section class="section shop-section" id="shop"><div class="section-heading"><div><p class="eyebrow">THOUGHTFUL PICKS</p><h2>Best sellers</h2><p class="section-note">Everyday favourites, selected with care.</p></div><a class="text-link" href="#shop" id="clearFilters">VIEW ALL <span>↗</span></a></div><div class="shop-toolbar"><div class="categories" aria-label="Filter products"><button class="active-filter" data-filter="ALL">All</button><button data-filter="Cleansers">Cleansers</button><button data-filter="Moisturizers">Moisturizers</button><button data-filter="Serums">Serums</button><button data-filter="Sunscreens">Sunscreens</button><button data-filter="Treatments">Treatments</button><button data-filter="Makeup">Makeup</button></div><span id="resultCount"></span></div><div class="products" id="productGrid" aria-live="polite"></div></section>
+    <section class="brand-band" id="brands"><div class="section-heading"><div><p class="eyebrow">GOOD COMPANY</p><h2>Brands we believe in</h2></div><p>Trusted names for considered routines.</p></div><div class="brand-list"><span>CeraVe</span><span>La Roche-Posay</span><span>Bioderma</span><span>THE ORDINARY</span><span>Avène</span><span>Neutrogena</span><span>COSRX</span></div></section>
+    <section class="promotion"><div class="promotion-image" role="img" aria-label="Skincare essentials displayed in soft natural light"></div><div class="promotion-copy"><p class="eyebrow">THE EVERYDAY EDIT</p><h2>Small rituals.<br><em>Lasting comfort.</em></h2><p>Thoughtful essentials for a routine that feels like your own. Explore a selection of gentle cleansers and everyday hydration.</p><a href="#shop" class="button button-light">SHOP THE EDIT</a></div></section>
+    <section class="about-section" id="about"><p class="eyebrow">MEET AVENELLE</p><h2>Good skin days begin<br>with <em>good choices.</em></h2><p>AVENELLE is a multi-brand beauty destination for people who value quality, authenticity and simplicity. We bring together considered skincare and beauty essentials, making it easier to find products that fit your everyday routine.</p><a class="text-link" href="#contact">A LITTLE MORE ABOUT US <span>↗</span></a></section>
+    <section class="newsletter" id="contact"><div><p class="eyebrow">A NOTE FROM AVENELLE</p><h2>Good things, thoughtfully shared.</h2><p>Get in touch for help finding your next everyday essential.</p></div><a class="button button-dark" href="mailto:hello@avenelle.dz">CONTACT OUR TEAM</a></section>
+  </main>
+  <footer><a class="wordmark footer-mark" href="#home">AVENELLE<span>YOUR SKIN. YOUR STANDARD.</span></a><div class="footer-links"><a href="#shop">Shop</a><a href="#brands">Brands</a><a href="#about">About</a><a href="./admin.html">Order management</a></div><p>© 2026 AVENELLE · ALGERIA</p></footer>
+  <script src="./algeria.js"></script><script src="./script.js"></script>
 </body>
 </html>
